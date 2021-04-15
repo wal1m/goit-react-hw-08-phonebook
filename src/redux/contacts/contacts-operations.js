@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actions from './contacts-actions';
 
-axios.defaults.baseURL = 'http://localhost:8080';
+// axios.defaults.baseURL = 'http://localhost:8080';
 
 export const fetchContact = () => async dispatch => {
   dispatch(actions.fetchContactRequest());
@@ -10,13 +10,8 @@ export const fetchContact = () => async dispatch => {
     const { data } = await axios.get('/contacts');
     dispatch(actions.fetchContactSuccess(data));
   } catch (error) {
-    dispatch(actions.fetchContactError(error));
+    dispatch(actions.fetchContactError(error.message));
   }
-
-  // axios
-  //   .get('/contacts')
-  //   .then(({ data }) => dispatch(actions.fetchContactSuccess(data)))
-  //   .catch(error => dispatch(actions.fetchContactError(error)));
 };
 
 // export const addContact = () => async dispatch => {
@@ -35,7 +30,7 @@ export const addContact = contact => dispatch => {
   axios
     .post('/contacts', contact)
     .then(({ data }) => dispatch(actions.addContactSuccess(data)))
-    .catch(error => dispatch(actions.addContactError(error)));
+    .catch(error => dispatch(actions.addContactError(error.message)));
 };
 
 export const deleteContact = id => dispatch => {
@@ -44,5 +39,5 @@ export const deleteContact = id => dispatch => {
   axios
     .delete(`/contacts/${id}`)
     .then(() => dispatch(actions.deleteContactSuccess(id)))
-    .catch(error => dispatch(actions.deleteContactError(error)));
+    .catch(error => dispatch(actions.deleteContactError(error.message)));
 };

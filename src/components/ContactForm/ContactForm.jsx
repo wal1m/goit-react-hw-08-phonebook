@@ -54,7 +54,7 @@ const ContactForm = () => {
           <p>Name</p>
           <input
             type="text"
-            // name='name'
+            name='name'
             onChange={handleNameChange}
             value={name}
           />
