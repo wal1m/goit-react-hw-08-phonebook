@@ -27,15 +27,6 @@ export const register = credentials => async dispatch => {
   }
 };
 
-// {name: "zxxbxcbfdcjn ", email: "asdxfdsvsaf@asd.com", password: "asdasdasddgetwS"}
-// email: "asdxfdsvsaf@asd.com"
-// name: "zxxbxcbfdcjn "
-// password: "asdasdasddgetwS"
-
-// {user: {name: "zxxbxcbfdcjn", email: "asdxfdsvsafa@asd.com"},…}
-// token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDc1YzUyOTAzNjkxMjAwMTdiMGQ2MmQiLCJpYXQiOjE2MTgzMzA5MjF9.smOs4rJINm8AsidCtHx9Ks0h7OorZl4JdnfH87PcXfM"
-// user: {name: "zxxbxcbfdcjn", email: "asdxfdsvsafa@asd.com"}
-
 export const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
 
@@ -62,7 +53,6 @@ export const logOut = () => async dispatch => {
 };
 
 export const getCurrentUser = () => async (dispatch, getState) => {
-  console.log('getCurrentUser');
   const {
     auth: { token: persistedToken },
   } = getState();

@@ -32,7 +32,6 @@ const RegisterView = () => {
   };
 
   const classes = useStyles();
-  // console.log(isAuthenticatedUser);
   return (
     <div>
       <h1>Страница регистрации</h1>

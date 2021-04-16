@@ -20,14 +20,12 @@ const useStyles = createUseStyles({
 const UserMenu = () => {
   const name = useSelector(getUsername);
   const dispatch = useDispatch();
-  // console.log('userMenu',user); //TOODOO
   const onLogout = () =>  dispatch(logOut());
   const classes = useStyles();
   return (
     <div className={classes.Container}>
       {/* <img src={avatar} alt="" width="32" style={styles.avatar} /> */}
       <span className={classes.Name}>Welcome, {name}</span>
-      {/* <button type="button" > */}
         <button type="button" onClick={onLogout}>
         Logout
       </button>
